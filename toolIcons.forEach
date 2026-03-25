@@ -1,0 +1,8 @@
+ctx.fillStyle = '#f0f0f0';
+ctx.fillRect(bx, by, btnSize, btnSize);
+ctx.strokeStyle = (i === 4) ? '#000' : '#808080'; // pencil selected
+ctx.strokeRect(bx, by, btnSize, btnSize);
+ctx.font = '14px sans-serif';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText(icon, bx + btnSize / 2, by + btnSize / 2);

@@ -1,0 +1,42 @@
+// 2. Interacting with open windows (Messing with app content)
+// Find window stickman is currently inside or on top of
+const activeWin = desktop.windows.find(w => !w.closed && !w.minimized && 
+  stick.pos.x >= w.x && stick.pos.x <= w.x + w.width &&
+  stick.pos.y >= w.y - 20 && stick.pos.y <= w.y + w.height + 20);
+
+if (activeWin) {
+  // Paint: draw dots while moving inside the window
+  if (activeWin.appId === 'paint' && Math.random() < dt * 8.0) {
+    desktop.addPaintStroke(stick.pos.x, stick.pos.y);
+  }
+
+  // Occasional "click" or "press" on other app elements
+  if (Math.random() < dt * 1.5) {
+    const fakeInput = { 
+      cursor: { x: stick.pos.x, y: stick.pos.y }, 
+      justClicked: true, 
+      pointerDown: true,
+      frameEnd: () => {} // satisfy expected structure
+    };
+    desktop.handleAppInteraction(activeWin, stick.pos.x, stick.pos.y, fakeInput, { width, height });
+    
+    // Random Typing simulation for chat/console apps
+    if (['aol', 'clippy', 'console'].includes(activeWin.appId)) {
+      const chars = "abcdefghijklmnopqrstuvwxyz ";
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      if (activeWin.appId === 'aol') activeWin.chatDraft = (activeWin.chatDraft || '') + char;
+      if (activeWin.appId === 'clippy') activeWin.clippyDraft = (activeWin.clippyDraft || '') + char;
+      if (activeWin.appId === 'console') activeWin.consoleInput = (activeWin.consoleInput || '') + char;
+      
+      // Chance to "submit"
+      if (Math.random() < 0.2) {
+        if (activeWin.appId === 'aol') desktop.sendAolMessage(activeWin);
+        if (activeWin.appId === 'clippy') desktop.sendClippyMessage(activeWin);
+        if (activeWin.appId === 'console') { 
+          desktop.runConsoleCommand(activeWin, activeWin.consoleInput); 
+          activeWin.consoleInput = ''; 
+        }
+      }
+    }
+  }
+}
