@@ -1,0 +1,45 @@
+ctx.fillStyle = '#f0f0f0';
+ctx.fillRect(tx, ty, toolSize, toolSize);
+ctx.strokeStyle = '#ffffff';
+ctx.beginPath();
+ctx.moveTo(tx + 0.5, ty + toolSize - 0.5);
+ctx.lineTo(tx + 0.5, ty + 0.5);
+ctx.lineTo(tx + toolSize - 0.5, ty + 0.5);
+ctx.stroke();
+ctx.strokeStyle = '#808080';
+ctx.beginPath();
+ctx.moveTo(tx + toolSize - 0.5, ty + 0.5);
+ctx.lineTo(tx + toolSize - 0.5, ty + toolSize - 0.5);
+ctx.lineTo(tx + 0.5, ty + toolSize - 0.5);
+ctx.stroke();
+
+ctx.fillStyle = '#000';
+const short = label[0];
+ctx.fillText(short, tx + 6, ty + 5);
+
+ctx.fillStyle = '#000';
+ctx.fillText(lab, tbx + 6, y + 6);
+tbx += w + 4;
+
+ctx.fillStyle = '#f5f5f5';
+ctx.fillRect(sizeX, sizeY, sizeBtnW, sizeBtnH);
+ctx.strokeStyle = '#c0c0c0';
+ctx.strokeRect(sizeX, sizeY, sizeBtnW, sizeBtnH);
+
+if (win.paintBrushSize === sz) {
+  ctx.strokeStyle = '#0066cc';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(sizeX + 1, sizeY + 1, sizeBtnW - 2, sizeBtnH - 2);
+  ctx.lineWidth = 1;
+}
+
+ctx.strokeStyle = '#000000';
+ctx.lineWidth = sz;
+const midY = sizeY + sizeBtnH / 2;
+ctx.beginPath();
+ctx.moveTo(sizeX + 4, midY);
+ctx.lineTo(sizeX + sizeBtnW - 4, midY);
+ctx.stroke();
+ctx.lineWidth = 1;
+
+sizeX += sizeBtnW + 6;

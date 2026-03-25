@@ -1,0 +1,12 @@
+if (win.paintColor === col) {
+  ctx.strokeStyle = '#ffeb3b';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(cx - 2, cy - 2, swatchSize + 4, swatchSize + 4);
+  ctx.lineWidth = 1;
+}
+
+cx += swatchSize + swatchMargin;
+
+if (x >= sx && x <= sx + swatchSize && y >= sy && y <= sy + swatchSize) {
+  win.paintColor = col;
+}
