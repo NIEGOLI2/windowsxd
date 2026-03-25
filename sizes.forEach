@@ -1,0 +1,11 @@
+const bx = sizeX;
+const by = sizeY;
+if (
+  x >= bx &&
+  x <= bx + sizeBtnW &&
+  y >= by &&
+  y <= by + sizeBtnH
+) {
+  win.paintBrushSize = sz;
+}
+sizeX += sizeBtnW + 6;
