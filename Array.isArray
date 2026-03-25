@@ -1,0 +1,14 @@
+const first = stroke.points[0];
+  if (stroke.points.length === 1) {
+    ctx.fillStyle = stroke.color || '#000';
+    ctx.arc(canvasX + first.x, canvasY + first.y, (stroke.size || 2)/2, 0, Math.PI*2);
+    ctx.fill();
+  } else {
+    ctx.moveTo(canvasX + first.x, canvasY + first.y);
+    for (let i = 1; i < stroke.points.length; i++) {
+      ctx.lineTo(canvasX + stroke.points[i].x, canvasY + stroke.points[i].y);
+    }
+    ctx.stroke();
+  }
+});
+ctx.restore();
