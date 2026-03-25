@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WINDOWS XD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <!-- SEO meta data (hidden to users but indexable by search engines) -->
+  <meta name="description" content="Animation vs Animator: an interactive Windows XP-style desktop sandbox where you can spawn and interact with stick figures, draw in Paint, place portals, and manipulate physics-driven shapes." />
+  <meta name="keywords" content="stickman, desktop sandbox, Windows XP, interactive canvas, paint, portals, physics, stick figure, spawn, tools, game, simulation, doodle, Alan Becker, Animations vs Animator, websim, cursor, animation" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://example.com/animation-vs-cursor" />
+  <!-- Open Graph for improved sharing (not visible on page) -->
+  <meta property="og:title" content="Animation vs. Cursor — Interactive Windows XP Desktop Sandbox" />
+  <meta property="og:description" content="Spawn stickmen, draw in Paint, drop portals and shapes, and experiment with playful physics on a retro desktop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./Windows.webp" />
+  <!-- Structured data (JSON-LD) for richer search result context -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Animation vs. Cursor",
+    "url": "https://example.com/animation-vs-cursor",
+    "description": "An interactive Windows XP-style desktop sandbox with physics-driven stick figures, Paint integration, and tools for spawning and manipulating objects.",
+    "applicationCategory": "Game",
+    "operatingSystem": "Web",
+    "image": "https://example.com/Windows.webp"
+  }
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #e3e3e3;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    @font-face {
+      font-family: 'WinXPTahoma';
+      src: url('./windows-xp-tahoma (3).ttf') format('truetype');
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      cursor: none;
+    }
+    /* Hidden, non-interactive SEO-only content */
+    .seo-hidden { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(1px, 1px, 1px, 1px) !important; white-space: nowrap !important; border: 0 !important; padding: 0 !important; margin: -1px !important; }
+  </style>
+
+
+</head>
+<body>
+  <!-- Invisible SEO content placed at the top of the body so it remains indexable but valid HTML -->
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Animation vs. Cursor — Interactive Stickman Desktop Sandbox</h1>
+    <h2>Spawn, draw, teleport and play with physics on a retro Windows XP desktop</h2>
+    <p>Features: spawn stickmen, paint drawing, teleportation portals, trampolines, draggable physics shapes, tool palette, AIM chat simulation, minesweeper, calculator, and more.</p>
+    <p>Keywords: stickman physics, desktop sandbox, XP paint, teleport portal, spawn stickman, interactive canvas, ragdoll, verlet physics, tools app, drag-and-drop shapes.</p>
+  </div>
+  <canvas id="scene"></canvas>
+  <!-- Hidden input used for AOL chat typing (mobile keyboard support) -->
+  <input id="aolInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+         style="position:absolute;left:-9999px;top:-9999px;opacity:0;width:1px;height:1px;border:0;padding:0;margin:0;" />
+
+  <!-- Hidden file input for custom wallpaper selection -->
+  <input id="wallpaperFile" type="file" accept="image/*"
+         style="position:absolute;left:-9999px;top:-9999px;opacity:0;width:1px;height:1px;border:0;padding:0;margin:0;" />
+
+  <!-- Hidden anchor used to trigger Paint image downloads -->
+  <a id="paintDownloadLink" style="display:none;"></a>
+
+  <audio id="screwSound" src="./asset_name.mp3" preload="auto"></audio>
+  <audio id="tntExplosionSound" src="./minecraft-tnt-explosion.mp3" preload="auto"></audio>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
